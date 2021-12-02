@@ -63,14 +63,14 @@ namespace Aoc2021.Day1
 
         public static IEnumerable<IEnumerable<T>> Window<T>(this IEnumerable<T> enumerable, uint length) {
             IEnumerator<T> e = enumerable.GetEnumerator();
-            List<T> state = new List<T>();
+            LinkedList<T> state = new LinkedList<T>();
             while ( e.MoveNext() ) {
                 T next = e.Current;
-                state.Add(next);
+                state.AddLast(next);
 
                 if(state.Count > length)
                 {
-                    state.RemoveAt(0);
+                    state.RemoveFirst();
                 }
                 yield return state.ToArray();
 
