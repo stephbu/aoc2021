@@ -3,7 +3,7 @@ namespace Aoc2021.Utility
     using System.Linq;
     using System.Collections.Generic;
 
-    public static class Extensions
+    public static class LinqExtensions
     {
         public static IEnumerable<IEnumerable<T>> Window<T>(this IEnumerable<T> enumerable, uint length) 
         {
@@ -21,5 +21,4 @@ namespace Aoc2021.Utility
             }
         }
     }
-
 }
