@@ -19,68 +19,53 @@ namespace Aoc2021.Day5
             int[,] map = new int[1000,1000];
 
             foreach(var line in lines) {
+                
                 var ventLine = processInput(line);
 
                 int x, xInc;
                 int y, yInc;
+                Func<int,int,bool> comparer;
+                x = ventLine.Start.X;
+                y = ventLine.Start.Y;
 
                 // mark vents on board
                 if(ventLine.Start.X <= ventLine.End.X && ventLine.Start.Y <= ventLine.End.Y) {
                     // both X/Y positive
                     xInc = ventLine.Start.X == ventLine.End.X ? 0 : 1;
                     yInc = ventLine.Start.Y == ventLine.End.Y ? 0 : 1;
+                    comparer = (x,y) => {return (x <= ventLine.End.X && y <= ventLine.End.Y);};
 
-                    x = ventLine.Start.X;
-                    y = ventLine.Start.Y;
-                    while(x <= ventLine.End.X && y <= ventLine.End.Y) {
-                        map[x, y]++;
-                        x = x + xInc;
-                        y = y + yInc;
-                    }
                 } else if(ventLine.Start.X <= ventLine.End.X && ventLine.Start.Y >= ventLine.End.Y) {
                     // positive X, negative Y
 
                     xInc = ventLine.Start.X == ventLine.End.X ? 0 : 1;
                     yInc = ventLine.Start.Y == ventLine.End.Y ? 0 : -1;
+                    comparer = (x,y) => {return (x <= ventLine.End.X && y >= ventLine.End.Y);};
 
-                    x = ventLine.Start.X;
-                    y = ventLine.Start.Y;
-                    while(x <= ventLine.End.X && y >= ventLine.End.Y) {
-                        map[x, y]++;
-                        x = x + xInc;
-                        y = y + yInc;
-                    }
                 } else if(ventLine.Start.X >= ventLine.End.X && ventLine.Start.Y <= ventLine.End.Y) {
                     // negative X, positive Y
 
                     xInc = ventLine.Start.X == ventLine.End.X ? 0 : -1;
                     yInc = ventLine.Start.Y == ventLine.End.Y ? 0 : 1;
+                    comparer = (x,y) => {return (x >= ventLine.End.X && y <= ventLine.End.Y);};
 
-                    x = ventLine.Start.X;
-                    y = ventLine.Start.Y;
-                    while(x >= ventLine.End.X && y <= ventLine.End.Y) {
-                        map[x, y]++;
-                        x = x + xInc;
-                        y = y + yInc;
-                    }
                 } else if(ventLine.Start.X >= ventLine.End.X && ventLine.Start.Y >= ventLine.End.Y) {
                     // negative X, negative Y
 
                     xInc = ventLine.Start.X == ventLine.End.X ? 0 : -1;
                     yInc = ventLine.Start.Y == ventLine.End.Y ? 0 : -1;
+                    comparer = (x,y) => {return (x >= ventLine.End.X && y >= ventLine.End.Y);};
 
-                    x = ventLine.Start.X;
-                    y = ventLine.Start.Y;
-                    while(x >= ventLine.End.X && y >= ventLine.End.Y) {
-                        map[x, y]++;
-                        x = x + xInc;
-                        y = y + yInc;
-                    }
                 } else {
-                    Console.WriteLine("Barf: {0}", ventLine.Description);
+                    throw new Exception("Barf: {0}".Format(ventLine.Description));
                 }
 
-
+                while(comparer(x,y)) 
+                {
+                    map[x, y]++;
+                    x = x + xInc;
+                    y = y + yInc;
+                }
             }
 
             int intersections = 0;
