@@ -25,7 +25,6 @@ namespace Aoc2021.Day5
                     continue;
                 }
 
-
                 // mark vents on board
                 if(ventLine.Start.X == ventLine.End.X) {
                     // variance is in Y axis
@@ -68,31 +67,6 @@ namespace Aoc2021.Day5
                     Console.Write(map[x,y]);
                 }
                 Console.WriteLine();
-            }
-        }
-
-        internal struct VentLine {
-            internal Coord Start;
-            internal Coord End;
-            internal string Description;
-
-            internal bool IsVerticalHorizontal(){
-                return Start.X == End.X || Start.Y == End.Y;
-            }
-
-            public override string ToString() {
-                return this.Description;
-            }
-        }
-
-        internal struct Coord {
-            internal int X;
-            internal int Y;
-
-            internal static Coord Parse(string coord) {
-                int[] components = coord.Split(",").Select(s => int.Parse(s)).ToArray();
-
-                return new Coord{X=components[0], Y=components[1]};
             }
         }
 

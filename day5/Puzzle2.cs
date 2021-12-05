@@ -106,31 +106,6 @@ namespace Aoc2021.Day5
             }
         }
 
-        internal struct VentLine {
-            internal Coord Start;
-            internal Coord End;
-            internal string Description;
-
-            internal bool IsVerticalHorizontal(){
-                return Start.X == End.X || Start.Y == End.Y;
-            }
-
-            public override string ToString() {
-                return this.Description;
-            }
-        }
-
-        internal struct Coord {
-            internal int X;
-            internal int Y;
-
-            internal static Coord Parse(string coord) {
-                int[] components = coord.Split(",").Select(s => int.Parse(s)).ToArray();
-
-                return new Coord{X=components[0], Y=components[1]};
-            }
-        }
-
         internal static VentLine processInput(string line) {
             Coord[] coords = line.Split(" -> ").Select(c => Coord.Parse(c)).ToArray();
             return new VentLine{Start=coords[0], End=coords[1], Description = line};
