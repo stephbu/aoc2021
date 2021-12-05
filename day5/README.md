@@ -1,0 +1,2 @@
+# Day 5 Notes
+Pretty simple array processing and logic tonight, splitting and parsing was straightforward, spent a little more time on Puzzle1 developing dump and eval routines, paid back a little in Puzzle 2.  Only minor modifications for puzzle 2 - Judo to deal with directionality of the lines, 4 permutations X+,Y+, X-,Y+, X+,Y-, X-,Y-. Pretty easy to solve albeit with a little less elegant copy and paste for sheer speed.

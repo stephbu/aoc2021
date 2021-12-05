@@ -30,6 +30,11 @@ namespace Aoc2021
             Aoc2021.Day4.Puzzle2.Sample();
             Aoc2021.Day4.Puzzle2.Question();
 
+            Console.WriteLine("Day5");
+            Aoc2021.Day5.Puzzle1.Sample();
+            Aoc2021.Day5.Puzzle1.Question();
+            Aoc2021.Day5.Puzzle2.Sample();
+            Aoc2021.Day5.Puzzle2.Question();
         }
     }
 }
