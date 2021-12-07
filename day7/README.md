@@ -1,0 +1,2 @@
+# Day 7 Notes
+Monday wake up call.  Pretty easy, reused some of the frequency work from Day 6 in part 1, with a brute-force best position tester.  Part 2 I used Gauss Summation to generate the fuel steps.
