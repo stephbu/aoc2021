@@ -1,0 +1,2 @@
+# Day 9 Notes
+Pretty easy tonight, changed the sample and question signatures a little to accommodate variable size arrays.  Bet right that we'd using a multidimensional array to track exploration.  Ended up with a queue/seed/marker system to explore each basin in puzzle 2 to the edges.  Nice bit of LINQ to finish the job - done deal. 
