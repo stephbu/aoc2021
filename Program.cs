@@ -62,12 +62,19 @@ namespace Aoc2021
             // Aoc2021.Day9.Puzzle2.Sample();
             // Aoc2021.Day9.Puzzle2.Question();
 
-            Console.WriteLine("Day10");
-            //Aoc2021.Day10.Puzzle1.Sample();
-            //Aoc2021.Day10.Puzzle1.Question();
-            Aoc2021.Day10.Puzzle2.Sample();
-            Aoc2021.Day10.Puzzle2.Question();
-
+            // Console.WriteLine("Day10");
+            // Aoc2021.Day10.Puzzle1.Sample();
+            // Aoc2021.Day10.Puzzle1.Question();
+            // Aoc2021.Day10.Puzzle2.Sample();
+            // Aoc2021.Day10.Puzzle2.Question();
+            
+            Console.WriteLine("Day11");
+            Aoc2021.Day11.Puzzle1.Sample1();
+            Aoc2021.Day11.Puzzle1.Sample2();
+            Aoc2021.Day11.Puzzle1.Question();
+            Aoc2021.Day11.Puzzle2.Sample1();
+            Aoc2021.Day11.Puzzle2.Sample2();
+            Aoc2021.Day11.Puzzle2.Question();
         }
     }
 }
